@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-primary: #6a7ece;
+    --color-secondary: #f1f1f1;
+    --color-active: #eeeeee;
+    --color-text: #000000;
+    --color-title: #ffffff;
+    --color-darkButton: #dbdcff;
+    --color-button: #00bfff;
+    --color-buttonText: #ffffff;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .dark {
+      --color-primary: #1c1c1c;
+      --color-secondary: #212121;
+      --color-active: #323232;
+      --color-text: #ffffff;
+      --color-title: #788cde;
+      --color-darkButton: #131328;
+      --color-button: #00bfff;
+      --color-buttonText: #ffffff;
+    }
+  }
+  body {
+    background-color: var(--color-primary);
+  }
+  p {
+    color: var(--color-text);
+  }
+}
+
+body {
+  transition: none !important;
+}
+
+button {
+  background-color: var(--color-button);
+  color: var(--color-buttonText);
+  font-weight: 600;
+  padding: 0.4em 1.5em 0.4em 1.5em;
+  border-radius: 0.2em;
+}
+
+h2 {
+  color: var(--color-text);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+.app-class input {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  border-color: var(--color-darkButton);
+  border-width: 2px;
+  border-radius: 0.3em;
+}
