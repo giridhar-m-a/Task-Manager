@@ -46,10 +46,38 @@ button {
   border-radius: 0.2em;
 }
 
+.nav-button {
+  background-color: transparent !important;
+  color: #94a3b8 !important;
+  font-weight: 500 !important;
+  padding: 0.4em 1.5em 0.4em 1.5em;
+  border-radius: 0 !important;
+}
+
 h2 {
   color: var(--color-text);
   font-size: 1.5em;
   font-weight: 700;
+}
+h1 {
+  color: var(--color-text);
+  font-size: 1.5em;
+  font-weight: 700;
+}
+h4 {
+  color: var(--color-text);
+  font-size: 1.1em;
+  font-weight: 400;
+}
+h5 {
+  color: var(--color-text);
+  font-size: 1.1em;
+  font-weight: 700;
+}
+h6 {
+  color: var(--color-text);
+  font-size: 0.9em;
+  font-weight: 500;
 }
 
 .app-class input {
@@ -59,4 +87,19 @@ h2 {
   border-color: var(--color-darkButton);
   border-width: 2px;
   border-radius: 0.3em;
+}
+
+.task {
+  border-radius: 0.3em 0em 0em 0.3em !important;
+  border-width: 2px 0px 2px 2px !important;
+}
+
+.task-date {
+  border-radius: 0em 0.3em 0.3em 0em !important;
+}
+
+.checkbox {
+  border-color: var(--color-text) !important;
+  height: 1.2rem;
+  width: 1rem;
 }

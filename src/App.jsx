@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Register from "./Pages/Register";
 import Layout from "./Pages/Laoyut";
 import Todo from "./Pages/Todo";
+import Application from "./Pages/Application";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 const Routes = createBrowserRouter([
   {
@@ -14,11 +16,13 @@ const Routes = createBrowserRouter([
     children: [
       { path: "/login", element: <Login /> },
       { path: "/register", element: <Register /> },
-      { path: "/app", element: <Todo /> },
+      { path: "/todo", element: <Todo /> },
+      { path: "/app", element: <Application /> },
     ],
   },
 ]);
 
+const queryClient = new QueryClient();
 function App() {
   const darkMode = useSelector((state) => state.theme.darkMode);
   const userData = useSelector((state) => state.userAuth);
@@ -31,7 +35,11 @@ function App() {
       document.documentElement.classList.add("light");
     }
   }, [darkMode, userData]);
-  return <RouterProvider router={Routes} />;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={Routes} />
+    </QueryClientProvider>
+  );
 }
 
 export default App;

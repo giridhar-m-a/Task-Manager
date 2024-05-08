@@ -1,11 +1,9 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import TaskInput from "../Components/TaskInput";
-import TaskListing from "../Components/TasksListing";
 import SideBar from "../Components/SideBar";
 
-const Todo = () => {
+const Application = () => {
   const navigate = useNavigate();
   const userData = useSelector((state) => state.userAuth);
   useEffect(() => {
@@ -21,13 +19,10 @@ const Todo = () => {
             <SideBar />
           </div>
         </div>
-        <div className="col-span-3">
-          <TaskListing />
-          <TaskInput />
-        </div>
+        <div className="col-span-3"></div>
       </div>
     </>
   );
 };
 
-export default Todo;
+export default Application;

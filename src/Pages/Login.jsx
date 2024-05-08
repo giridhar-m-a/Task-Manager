@@ -32,6 +32,13 @@ const Login = () => {
     const userDetails = {
       name: data?.user?.user_metadata?.full_name,
       email: data?.user?.user_metadata?.email,
+      userId: data?.user?.id,
+      accessToken: data?.session?.access_token,
+      refreshToken: data?.session?.refresh_token,
+      tokenType: data?.session?.token_type,
+      expiresAt: data?.session?.expires_at,
+      expiresIn: data?.session?.expires_in,
+      userDetails: data,
     };
     console.log("userDetails:", userDetails);
     if (data?.user?.aud === "authenticated") {
@@ -40,42 +47,44 @@ const Login = () => {
     }
   };
   return (
-    <Card>
-      <h2 className="pb-8">Login</h2>
-      <div>
-        <form className="grid grid-cols-1 gap-8 pb-8" onSubmit={handleSubmit}>
-          <div className="grid grid-cols-4 gap-8">
-            <label>Email</label>
-            <input
-              type="email"
-              name="email"
-              placeholder="email"
-              className="col-span-3"
-              required
-              onChange={handleChange}
-            />
-          </div>
-          <div className="grid grid-cols-4 gap-8">
-            <label>Password</label>
-            <input
-              type="password"
-              placeholder="Password"
-              className="col-span-3"
-              required
-              onChange={handleChange}
-              name="password"
-            />
-          </div>
-          <div className="flex justify-center">
-            <button>Login</button>
-          </div>
-        </form>
-      </div>
-      <p>
-        If you don&apos;t have an account{" "}
-        <Link to="/register">register here</Link>
-      </p>
-    </Card>
+    <div className="flex justify-center items-center h-dvh">
+      <Card>
+        <h2 className="pb-8">Login</h2>
+        <div>
+          <form className="grid grid-cols-1 gap-8 pb-8" onSubmit={handleSubmit}>
+            <div className="grid grid-cols-4 gap-8">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="email"
+                className="col-span-3"
+                required
+                onChange={handleChange}
+              />
+            </div>
+            <div className="grid grid-cols-4 gap-8">
+              <label>Password</label>
+              <input
+                type="password"
+                placeholder="Password"
+                className="col-span-3"
+                required
+                onChange={handleChange}
+                name="password"
+              />
+            </div>
+            <div className="flex justify-center">
+              <button>Login</button>
+            </div>
+          </form>
+        </div>
+        <p>
+          If you don&apos;t have an account{" "}
+          <Link to="/register">register here</Link>
+        </p>
+      </Card>
+    </div>
   );
 };
 
