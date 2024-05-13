@@ -13,6 +13,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+  const [errorMessage, setErrorMessage] = useState(undefined);
   useEffect(() => {
     if (userData.Authenticated) {
       navigate("/app");
@@ -40,12 +41,19 @@ const Login = () => {
       expiresIn: data?.session?.expires_in,
       userDetails: data,
     };
-    console.log("userDetails:", userDetails);
+    // console.log("userDetails:", error);
     if (data?.user?.aud === "authenticated") {
       dispatch(authActions.signin(userDetails));
       navigate("/app");
     }
+
+    switch (error.status) {
+      case 400:
+        setErrorMessage("Invalid login credentials");
+        break;
+    }
   };
+
   return (
     <div className="flex justify-center items-center h-dvh">
       <Card>
@@ -81,8 +89,11 @@ const Login = () => {
         </div>
         <p>
           If you don&apos;t have an account{" "}
-          <Link to="/register">register here</Link>
+          <Link to="/register" className="text-blue-600">
+            register here
+          </Link>
         </p>
+        {errorMessage && <p className="text-red-600 pt-4">{errorMessage}</p>}
       </Card>
     </div>
   );

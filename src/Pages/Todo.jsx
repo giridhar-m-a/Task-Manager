@@ -21,7 +21,7 @@ const Todo = () => {
             <SideBar />
           </div>
         </div>
-        <div className="col-span-3">
+        <div className="ml-[0.1rem] col-span-3">
           <TaskListing />
           <TaskInput />
         </div>
