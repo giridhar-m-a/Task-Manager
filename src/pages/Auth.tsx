@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 const Auth = () => {
   const [session, setSession] = useState<Session | null>(null);
   const navigate = useNavigate();
+  //get session
 
   const getSession = useCallback(async () => {
     const {
