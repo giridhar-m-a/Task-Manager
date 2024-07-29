@@ -50,7 +50,7 @@ const Register = () => {
         throw new Error(error.message);
       }
       if (data) {
-        navigate('/dashboard');
+        navigate('/confirm-account');
       }
     } catch (error) {
       console.log(error);

@@ -28,7 +28,7 @@ const SignUPConfirm = () => {
 
   return (
     <main className="h-screen flex justify-center items-center">
-      <Card>
+      <Card className="pt-6">
         <CardContent className="text-center space-x-4">
           <h1>Confirmation Email Has Been Sent</h1>
           <p>Please check your email</p>
